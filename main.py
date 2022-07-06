@@ -2,10 +2,11 @@ from flask import Flask, redirect, render_template, request, url_for
 import requests, os
 from dotenv import load_dotenv
 
+load_dotenv()
 
 app = Flask(__name__)
 
-API_ENDPOINT = "https://api.npoint.io/5772056d33771fc33f71"
+API_ENDPOINT = os.getenv("API_ENDPOINT")
 
 
 blog_stories = requests.get(API_ENDPOINT).json()
